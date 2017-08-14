@@ -13,6 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
+TW_THEME := portrait_hdpi
 
 ifdef project-path-for
     ifeq ($(LOCAL_PATH),$(call project-path-for,recovery))
@@ -39,6 +40,8 @@ TWRES_PATH := /twres/
 TWHTCD_PATH := $(TWRES_PATH)htcd/
 
 TARGET_RECOVERY_GUI := true
+
+TW_DEVICE_VERSION := bootloop
 
 ifneq ($(TW_DEVICE_VERSION),)
     LOCAL_CFLAGS += -DTW_DEVICE_VERSION='"-$(TW_DEVICE_VERSION)"'
