@@ -365,6 +365,7 @@ LOCAL_ADDITIONAL_DEPENDENCIES += \
     flash_image \
     mke2fs.conf \
     pigz \
+    memtester \
     teamwin \
     toolbox_symlinks \
     twrp \
@@ -510,7 +511,7 @@ ifneq ($(TW_USE_TOOLBOX), true)
 include $(CLEAR_VARS)
 # Create busybox symlinks... gzip and gunzip are excluded because those need to link to pigz instead
 BUSYBOX_LINKS := $(shell cat external/busybox/busybox-full.links)
-exclude := tune2fs mke2fs mkdosfs mkfs.vfat gzip gunzip
+exclude := tune2fs mke2fs mkdosfs mkfs.vfat gzip gunzip memtester
 
 # Having /sbin/modprobe present on 32 bit devices with can cause a massive
 # performance problem if the kernel has CONFIG_MODULES=y
@@ -668,6 +669,7 @@ include $(commands_recovery_local_path)/injecttwrp/Android.mk \
     $(commands_recovery_local_path)/mtdutils/Android.mk \
     $(commands_recovery_local_path)/flashutils/Android.mk \
     $(commands_recovery_local_path)/pigz/Android.mk \
+    $(commands_recovery_local_path)/memtester/Android.mk \
     $(commands_recovery_local_path)/libtar/Android.mk \
     $(commands_recovery_local_path)/libcrecovery/Android.mk \
     $(commands_recovery_local_path)/libblkid/Android.mk \
